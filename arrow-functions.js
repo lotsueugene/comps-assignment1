@@ -14,7 +14,7 @@ function greetUser(name) {
     return `Hello, ${name}!`;
 }
 // Update greetUserArrow below to implement the function shown above. Delete null and then write your arrow function.
-const greetUserArrow = null;
+const greetUserArrow = name => `Hello, ${name}!`;
 
 
 
@@ -23,7 +23,7 @@ function calculateArea(length, width) {
     return length * width;
 };
 // Update calculateAreaArrow below to implement the function shown above. Delete null and then write your arrow function.
-const calculateAreaArrow = null;
+const calculateAreaArrow = (length, width) => length*width;
 
 
 
@@ -32,7 +32,7 @@ function getCurrentTime() {
     return new Date().toLocaleTimeString();
 }
 // Update getCurrentTimeArrow below to implement the function shown above. Delete null and then write your arrow function.
-const getCurrentTimeArrow = null;
+const getCurrentTimeArrow = () => new Date().toLocaleDateString();
 
 
 
@@ -45,8 +45,13 @@ function validatePassword(password) {
     }
 }
 // Update validatePasswordArrow below to implement the function shown above. Delete null and then write your arrow function.
-const validatePasswordArrow = null;
-
+const validatePasswordArrow = password => {
+      if (password.length >= 8) {
+        return "Password is valid";
+    } else {
+        return "Password must be at least 8 characters";
+    }
+};
 
 
 // Exercise 5: Convert this function to an arrow function
@@ -57,7 +62,12 @@ function processOrder(item, quantity) {
     return `Order total: ${finalAmount.toFixed(2)}`;
 }
 // Update processOrderArrow below to implement the function shown above. Delete null and then write your arrow function.
-const processOrderArrow = null
+const processOrderArrow = (item , quantity) => {
+    const total = item.price * quantity;
+    const tax = total * 0.08;
+    const finalAmount = total + tax;
+    return `Order total: ${finalAmount.toFixed(2)}`;
+}
 
 
 
@@ -148,11 +158,11 @@ evaluateScores should take three test scores, find the highest score, and return
 // You can uncomment these lines to test your functions
 
 // console.log("Testing Part 1:");
-// console.log(greetUserArrow("Alice")); // Should output: "Hello, Alice!"
-// console.log(calculateAreaArrow(5, 3)); // Should output: 15
-// console.log(getCurrentTimeArrow()); // Should output current time
-// console.log(validatePasswordArrow("secret")); // Should output: "Password must be at least 8 characters"
-// console.log(processOrderArrow({price: 10}, 2)); // Should output: "Order total: $21.60"
+console.log(greetUserArrow("Alice")); // Should output: "Hello, Alice!"
+console.log(calculateAreaArrow(5, 3)); // Should output: 15
+console.log(getCurrentTimeArrow()); // Should output current time
+console.log(validatePasswordArrow("secret")); // Should output: "Password must be at least 8 characters"
+console.log(processOrderArrow({price: 10}, 2)); // Should output: "Order total: $21.60"
 
 // console.log("\nTesting Part 2:");
 // console.log(makeUppercase("hello")); // Should output: "HELLO"
